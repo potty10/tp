@@ -64,6 +64,12 @@ public interface Model {
     void deleteInternship(Internship target);
 
     /**
+     * Deletes all internships based on a predicate
+     * @param predicate Predicate to filter out internships
+     */
+    void deleteInternshipByPredicate(Predicate<Internship> predicate);
+
+    /**
      * Views the given internship.
      * The {@code internship} must exist in InternBuddy.
      */

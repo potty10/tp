@@ -101,6 +101,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void deleteInternshipByPredicate(Predicate<Internship> predicate) {
+        internBuddy.removeInternshipByPredicate(predicate);
+    }
+
+    @Override
     public void viewInternship(Internship target) {
         internBuddy.viewInternship(target);
     }

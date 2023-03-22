@@ -3,6 +3,7 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.model.internship.Internship;
@@ -92,6 +93,14 @@ public class InternBuddy implements ReadOnlyInternBuddy {
      */
     public void removeInternship(Internship key) {
         internships.remove(key);
+    }
+
+    /**
+     * Removes all internships matching {@code predicate} from this {@code InternBuddy}.
+     * {@code key} must exist in InternBuddy.
+     */
+    public void removeInternshipByPredicate(Predicate<Internship> predicate) {
+        internships.removeByPredicate(predicate);
     }
 
     /**

@@ -93,4 +93,10 @@ public class InternshipContainsKeywordsPredicate implements Predicate<Internship
                 && tagKeywords.equals(((InternshipContainsKeywordsPredicate) other).tagKeywords));
     }
 
+    public boolean isEmpty() {
+        return this.nameKeywords.isEmpty() && this.roleKeywords.isEmpty() && this.statusKeywords.isEmpty()
+                && this.tagKeywords.isEmpty();
+    }
+
+
 }

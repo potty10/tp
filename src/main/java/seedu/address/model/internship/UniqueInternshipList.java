@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -79,6 +80,11 @@ public class UniqueInternshipList implements Iterable<Internship> {
         if (!internalList.remove(toRemove)) {
             throw new InternshipNotFoundException();
         }
+    }
+
+    public void removeByPredicate(Predicate<Internship> predicate) {
+        requireNonNull(predicate);
+        internalList.removeIf(predicate);
     }
 
     /**
