@@ -82,6 +82,10 @@ public class UniqueInternshipList implements Iterable<Internship> {
         }
     }
 
+    /**
+     * Removes all internships that fulfils the predicate from the list.
+     * Might not remove any internships.
+     */
     public void removeByPredicate(Predicate<Internship> predicate) {
         requireNonNull(predicate);
         internalList.removeIf(predicate);

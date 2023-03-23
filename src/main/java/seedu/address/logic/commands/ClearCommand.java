@@ -1,10 +1,10 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.model.InternBuddy;
 import seedu.address.model.Model;

@@ -3,6 +3,10 @@ package seedu.address.logic.commands;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalInternships.getTypicalInternBuddy;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.InternBuddy;
@@ -11,10 +15,6 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.internship.InternshipContainsKeywordsPredicate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-
 public class ClearCommandTest {
 
     @Test
@@ -22,8 +22,9 @@ public class ClearCommandTest {
         Model model = new ModelManager();
         Model expectedModel = new ModelManager();
         InternshipContainsKeywordsPredicate emptyPredicate = new InternshipContainsKeywordsPredicate(
-                new ArrayList<>(), new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
-        assertCommandSuccess(new ClearCommand(emptyPredicate), model, ClearCommand.MESSAGE_SUCCESS_CLEAR, expectedModel);
+                new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        assertCommandSuccess(new ClearCommand(emptyPredicate), model, ClearCommand.MESSAGE_SUCCESS_CLEAR,
+                expectedModel);
     }
 
     @Test
@@ -32,8 +33,9 @@ public class ClearCommandTest {
         Model expectedModel = new ModelManager(getTypicalInternBuddy(), new UserPrefs());
         expectedModel.setInternBuddy(new InternBuddy());
         InternshipContainsKeywordsPredicate emptyPredicate = new InternshipContainsKeywordsPredicate(
-                new ArrayList<>(), new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
-        assertCommandSuccess(new ClearCommand(emptyPredicate), model, ClearCommand.MESSAGE_SUCCESS_CLEAR, expectedModel);
+                new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        assertCommandSuccess(new ClearCommand(emptyPredicate), model, ClearCommand.MESSAGE_SUCCESS_CLEAR,
+                expectedModel);
     }
 
     @Test

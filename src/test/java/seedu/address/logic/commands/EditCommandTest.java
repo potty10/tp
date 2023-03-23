@@ -14,6 +14,9 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_INTERNSHIP;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_INTERNSHIP;
 import static seedu.address.testutil.TypicalInternships.getTypicalInternBuddy;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.Messages;
@@ -28,8 +31,7 @@ import seedu.address.model.internship.InternshipContainsKeywordsPredicate;
 import seedu.address.testutil.EditInternshipDescriptorBuilder;
 import seedu.address.testutil.InternshipBuilder;
 
-import java.util.Arrays;
-import java.util.Collections;
+
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for EditCommand.
