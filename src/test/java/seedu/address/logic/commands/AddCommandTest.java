@@ -142,6 +142,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public void deleteInternshipByPredicate(Predicate<Internship> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void setInternship(Internship target, Internship editedInternship) {
             throw new AssertionError("This method should not be called.");
         }

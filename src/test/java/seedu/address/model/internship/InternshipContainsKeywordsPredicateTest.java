@@ -158,4 +158,22 @@ public class InternshipContainsKeywordsPredicateTest {
         assertFalse(predicate.test(new InternshipBuilder().withCompanyName("Apple").withRole("Developer")
                 .withStatus("applied").withDate("2023-02-01").build()));
     }
+
+    @Test
+    public void test_emptyPredicate_returnsTrue() {
+        // Empty predicate
+        InternshipContainsKeywordsPredicate predicate =
+                new InternshipContainsKeywordsPredicate(Collections.emptyList(), Collections.emptyList(),
+                        Collections.emptyList(), Collections.emptyList());
+        assertTrue(predicate.isEmpty());
+    }
+
+    @Test
+    public void test_nonEmptyPredicate_returnsFalse() {
+        // Non-empty predicate
+        InternshipContainsKeywordsPredicate predicate =
+            new InternshipContainsKeywordsPredicate(Arrays.asList("Grab"), Collections.emptyList(),
+                Collections.emptyList(), Collections.emptyList());
+        assertFalse(predicate.isEmpty());
+    }
 }

@@ -24,8 +24,12 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.internship.Internship;
+import seedu.address.model.internship.InternshipContainsKeywordsPredicate;
 import seedu.address.testutil.EditInternshipDescriptorBuilder;
 import seedu.address.testutil.InternshipBuilder;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for EditCommand.
@@ -166,8 +170,12 @@ public class EditCommandTest {
         // null -> returns false
         assertFalse(standardCommand.equals(null));
 
+        InternshipContainsKeywordsPredicate predicate =
+                new InternshipContainsKeywordsPredicate(Arrays.asList("Grab"), Collections.emptyList(),
+                        Collections.emptyList(), Collections.emptyList());
+
         // different types -> returns false
-        assertFalse(standardCommand.equals(new ClearCommand()));
+        assertFalse(standardCommand.equals(new ClearCommand(predicate)));
 
         // different index -> returns false
         assertFalse(standardCommand.equals(new EditCommand(INDEX_SECOND_INTERNSHIP, DESC_APPLE)));
