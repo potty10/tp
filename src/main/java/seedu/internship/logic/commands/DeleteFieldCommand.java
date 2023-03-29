@@ -29,7 +29,7 @@ public class DeleteFieldCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes all internships whose fields matches all of the specified name, role, status, date and tag.\n"
             + "If multiple arguments belonging to same field are given, the internship whose field matches one of "
-            + "the argument will be deleted."
+            + "the argument will be deleted.\n"
             + "Parameters: [" + PREFIX_COMPANY_NAME + "COMPANY_NAME]... "
             + "[" + PREFIX_ROLE + "ROLE]... "
             + "[" + PREFIX_DATE + "DATE]... "
