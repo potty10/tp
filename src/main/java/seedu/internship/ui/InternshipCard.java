@@ -139,23 +139,23 @@ public class InternshipCard extends UiPart<Region> {
     public static String getDateLabel(String statusString) {
         String dateLabel;
         switch (statusString) {
-        case ACCEPTED:
-            dateLabel = "Date of Acceptance: ";
-            break;
-        case REJECTED:
-            dateLabel = "Date of Rejection: ";
-            break;
-        case OFFERED:
-            dateLabel = "Deadline of Offer Acceptance: ";
-            break;
-        case INTERVIEW:
-            dateLabel = "Date of Interview: ";
+        case APPLIED:
+            dateLabel = "Date Applied: ";
             break;
         case ASSESSMENT:
             dateLabel = "Date of Assessment: ";
             break;
-        case APPLIED:
-            dateLabel = "Date Applied: ";
+        case INTERVIEW:
+            dateLabel = "Date of Interview: ";
+            break;
+        case OFFERED:
+            dateLabel = "Deadline of Offer Acceptance: ";
+            break;
+        case REJECTED:
+            dateLabel = "Date of Rejection: ";
+            break;
+        case ACCEPTED:
+            dateLabel = "Date of Acceptance: ";
             break;
         default:
             dateLabel = "Deadline of Application: ";
