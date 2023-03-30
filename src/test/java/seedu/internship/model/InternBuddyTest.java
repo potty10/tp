@@ -97,6 +97,12 @@ public class InternBuddyTest {
         public ObservableList<Internship> getInternshipList() {
             return internships;
         }
+
+        @Override
+        public Internship getSelectedInternship() {
+            return null;
+        }
+
     }
 
 }

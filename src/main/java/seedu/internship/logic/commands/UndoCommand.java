@@ -1,7 +1,6 @@
 package seedu.internship.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.internship.model.Model.PREDICATE_SHOW_ALL_INTERNSHIPS;
 
 import seedu.internship.logic.commands.exceptions.CommandException;
 import seedu.internship.model.Model;

@@ -11,6 +11,10 @@ public class VersionedInternBuddy extends InternBuddy {
     private final List<ReadOnlyInternBuddy> internBuddyStateList;
     private int currentStatePointer;
 
+    /**
+     * Constructs a new VersionInternBuddy and sets an initial InternBuddy as the initial state.
+     * @param initialState
+     */
     public VersionedInternBuddy(ReadOnlyInternBuddy initialState) {
         super(initialState);
 
@@ -55,6 +59,9 @@ public class VersionedInternBuddy extends InternBuddy {
         resetData(internBuddyStateList.get(currentStatePointer));
     }
 
+    /**
+     * Saves the current InternBuddy as the latest history
+     */
     public void saveCurrentInternBuddy() {
         internBuddyStateList.set(currentStatePointer, new InternBuddy(this));
     }

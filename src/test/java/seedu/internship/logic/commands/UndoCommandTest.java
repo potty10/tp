@@ -1,15 +1,14 @@
 package seedu.internship.logic.commands;
 
+import static seedu.internship.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.internship.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.internship.testutil.TypicalInternships.getTypicalInternBuddy;
+
 import org.junit.jupiter.api.Test;
+
 import seedu.internship.model.Model;
 import seedu.internship.model.ModelManager;
 import seedu.internship.model.UserPrefs;
-
-import static seedu.internship.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.internship.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.internship.logic.commands.CommandTestUtil.showInternshipAtIndex;
-import static seedu.internship.testutil.TypicalIndexes.INDEX_FIRST_INTERNSHIP;
-import static seedu.internship.testutil.TypicalInternships.getTypicalInternBuddy;
 
 public class UndoCommandTest {
     private Model model = new ModelManager(getTypicalInternBuddy(), new UserPrefs());

@@ -175,6 +175,10 @@ public class AddCommandTest {
             assert(true);
         }
 
+        public void saveCurrentInternBuddy() {
+            throw new AssertionError("This method should not be called.");
+        }
+
         @Override
         public boolean canUndoInternBuddy() {
             throw new AssertionError("This method should not be called.");
