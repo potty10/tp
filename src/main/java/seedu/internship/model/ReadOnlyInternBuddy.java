@@ -14,4 +14,6 @@ public interface ReadOnlyInternBuddy {
      */
     ObservableList<Internship> getInternshipList();
 
+    Internship getSelectedInternship();
+
 }

@@ -45,6 +45,7 @@ public class ViewCommand extends Command {
 
         //Functionality of the view internship command
         model.updateSelectedInternship(internshipToView);
+        model.saveCurrentInternBuddy();
         return new CommandResult(String.format(MESSAGE_VIEW_INTERNSHIP_SUCCESS, internshipToView));
     }
 

@@ -158,4 +158,9 @@ public interface Model {
      * Saves the current address book state for undo/redo.
      */
     void commitInternBuddy();
+
+    /**
+     * Saves the current InternBuddy as the latest commit
+     */
+    void saveCurrentInternBuddy();
 }

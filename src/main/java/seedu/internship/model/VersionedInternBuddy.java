@@ -55,6 +55,10 @@ public class VersionedInternBuddy extends InternBuddy {
         resetData(internBuddyStateList.get(currentStatePointer));
     }
 
+    public void saveCurrentInternBuddy() {
+        internBuddyStateList.set(currentStatePointer, new InternBuddy(this));
+    }
+
     /**
      * Returns true if {@code undo()} has address book states to undo.
      */

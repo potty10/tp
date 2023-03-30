@@ -49,6 +49,7 @@ public class CopyCommand extends Command {
 
         //update right panel
         model.updateSelectedInternship(internshipToCopy);
+        model.saveCurrentInternBuddy();
         return new CommandResult(String.format(MESSAGE_COPY_INTERNSHIP_SUCCESS, internshipToCopy));
     }
 

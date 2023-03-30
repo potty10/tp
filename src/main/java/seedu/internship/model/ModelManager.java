@@ -159,12 +159,12 @@ public class ModelManager implements Model {
 
     @Override
     public Internship getSelectedInternship() {
-        return this.selectedInternship;
+        return this.versionedInternBuddy.getSelectedInternship();
     }
 
     @Override
     public void updateSelectedInternship(Internship target) {
-        this.selectedInternship = target;
+        this.versionedInternBuddy.updateSelectedInternship(target);
     }
 
     @Override
@@ -199,4 +199,8 @@ public class ModelManager implements Model {
         versionedInternBuddy.commit();
     }
 
+    @Override
+    public void saveCurrentInternBuddy() {
+        versionedInternBuddy.saveCurrentInternBuddy();
+    }
 }

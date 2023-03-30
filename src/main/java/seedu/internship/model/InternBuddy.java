@@ -20,6 +20,8 @@ public class InternBuddy implements ReadOnlyInternBuddy {
 
     private final UniqueInternshipList internships;
 
+    private Internship selectedInternship;
+
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
      * between constructors. See https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
@@ -58,6 +60,7 @@ public class InternBuddy implements ReadOnlyInternBuddy {
         requireNonNull(newData);
 
         setInternships(newData.getInternshipList());
+        this.selectedInternship = newData.getSelectedInternship();
     }
 
     //// internship-level operations
@@ -148,4 +151,13 @@ public class InternBuddy implements ReadOnlyInternBuddy {
     public int hashCode() {
         return internships.hashCode();
     }
+
+    public Internship getSelectedInternship() {
+        return this.selectedInternship;
+    }
+
+    public void updateSelectedInternship(Internship target) {
+        this.selectedInternship = target;
+    }
+
 }

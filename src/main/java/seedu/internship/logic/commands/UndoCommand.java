@@ -24,7 +24,7 @@ public class UndoCommand extends Command {
         }
 
         model.undoInternBuddy();
-        model.updateFilteredInternshipList(PREDICATE_SHOW_ALL_INTERNSHIPS);
+        // model.updateFilteredInternshipList(PREDICATE_SHOW_ALL_INTERNSHIPS);
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }
