@@ -17,6 +17,8 @@ import seedu.internship.logic.commands.ExitCommand;
 import seedu.internship.logic.commands.FindCommand;
 import seedu.internship.logic.commands.HelpCommand;
 import seedu.internship.logic.commands.ListCommand;
+import seedu.internship.logic.commands.UndoCommand;
+import seedu.internship.logic.commands.RedoCommand;
 import seedu.internship.logic.commands.UpcomingCommand;
 import seedu.internship.logic.commands.ViewCommand;
 import seedu.internship.logic.parser.exceptions.ParseException;
@@ -83,6 +85,12 @@ public class InternBuddyParser {
 
         case UpcomingCommand.COMMAND_WORD:
             return new UpcomingCommand();
+
+        case UndoCommand.COMMAND_WORD:
+            return new UndoCommand();
+
+        case RedoCommand.COMMAND_WORD:
+            return new RedoCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

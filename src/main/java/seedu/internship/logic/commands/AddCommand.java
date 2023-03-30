@@ -61,7 +61,7 @@ public class AddCommand extends Command {
         model.addInternship(toAdd);
         //Update right panel
         model.updateSelectedInternship(toAdd);
-
+        model.commitInternBuddy();
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 

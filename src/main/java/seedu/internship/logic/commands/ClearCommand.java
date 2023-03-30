@@ -19,6 +19,7 @@ public class ClearCommand extends Command {
         requireNonNull(model);
         model.setInternBuddy(new InternBuddy());
         model.updateSelectedInternship(null);
+        model.commitInternBuddy();
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

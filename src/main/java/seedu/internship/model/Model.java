@@ -133,4 +133,29 @@ public interface Model {
      */
 
     void copyInternship(Internship target);
+
+    /**
+     * Returns true if the model has previous address book states to restore.
+     */
+    boolean canUndoInternBuddy();
+
+    /**
+     * Returns true if the model has undone address book states to restore.
+     */
+    boolean canRedoInternBuddy();
+
+    /**
+     * Restores the model's address book to its previous state.
+     */
+    void undoInternBuddy();
+
+    /**
+     * Restores the model's address book to its previously undone state.
+     */
+    void redoInternBuddy();
+
+    /**
+     * Saves the current address book state for undo/redo.
+     */
+    void commitInternBuddy();
 }

@@ -19,22 +19,22 @@ import seedu.internship.model.internship.Internship;
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final InternBuddy internBuddy;
+    private final VersionedInternBuddy versionedInternBuddy;
     private final UserPrefs userPrefs;
     private final FilteredList<Internship> filteredInternships;
     private Internship selectedInternship;
 
     /**
-     * Initializes a ModelManager with the given internBuddy and userPrefs.
+     * Initializes a ModelManager with the given versionedInternBuddy and userPrefs.
      */
-    public ModelManager(ReadOnlyInternBuddy internBuddy, ReadOnlyUserPrefs userPrefs) {
-        requireAllNonNull(internBuddy, userPrefs);
+    public ModelManager(ReadOnlyInternBuddy versionedInternBuddy, ReadOnlyUserPrefs userPrefs) {
+        requireAllNonNull(versionedInternBuddy, userPrefs);
 
-        logger.fine("Initializing with address book: " + internBuddy + " and user prefs " + userPrefs);
+        logger.fine("Initializing with address book: " + versionedInternBuddy + " and user prefs " + userPrefs);
 
-        this.internBuddy = new InternBuddy(internBuddy);
+        this.versionedInternBuddy = new VersionedInternBuddy(versionedInternBuddy);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredInternships = new FilteredList<>(this.internBuddy.getInternshipList());
+        filteredInternships = new FilteredList<>(this.versionedInternBuddy.getInternshipList());
         selectedInternship = null;
     }
 
@@ -72,42 +72,42 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void setInternBuddyFilePath(Path internBuddyFilePath) {
-        requireNonNull(internBuddyFilePath);
-        userPrefs.setInternBuddyFilePath(internBuddyFilePath);
+    public void setInternBuddyFilePath(Path versionedInternBuddyFilePath) {
+        requireNonNull(versionedInternBuddyFilePath);
+        userPrefs.setInternBuddyFilePath(versionedInternBuddyFilePath);
     }
 
     //=========== InternBuddy ================================================================================
 
     @Override
-    public void setInternBuddy(ReadOnlyInternBuddy internBuddy) {
-        this.internBuddy.resetData(internBuddy);
+    public void setInternBuddy(ReadOnlyInternBuddy versionedInternBuddy) {
+        this.versionedInternBuddy.resetData(versionedInternBuddy);
     }
 
     @Override
     public ReadOnlyInternBuddy getInternBuddy() {
-        return internBuddy;
+        return versionedInternBuddy;
     }
 
     @Override
     public boolean hasInternship(Internship internship) {
         requireNonNull(internship);
-        return internBuddy.hasInternship(internship);
+        return versionedInternBuddy.hasInternship(internship);
     }
 
     @Override
     public void deleteInternship(Internship target) {
-        internBuddy.removeInternship(target);
+        versionedInternBuddy.removeInternship(target);
     }
 
     @Override
     public void viewInternship(Internship target) {
-        internBuddy.viewInternship(target);
+        versionedInternBuddy.viewInternship(target);
     }
 
     @Override
     public void addInternship(Internship internship) {
-        internBuddy.addInternship(internship);
+        versionedInternBuddy.addInternship(internship);
         updateFilteredInternshipList(PREDICATE_SHOW_ALL_INTERNSHIPS);
     }
 
@@ -115,7 +115,7 @@ public class ModelManager implements Model {
     public void setInternship(Internship target, Internship editedInternship) {
         requireAllNonNull(target, editedInternship);
 
-        internBuddy.setInternship(target, editedInternship);
+        versionedInternBuddy.setInternship(target, editedInternship);
     }
 
     //=========== Filtered Internship List Accessors =============================================================
@@ -150,7 +150,7 @@ public class ModelManager implements Model {
 
         // state check
         ModelManager other = (ModelManager) obj;
-        return internBuddy.equals(other.internBuddy)
+        return versionedInternBuddy.equals(other.versionedInternBuddy)
                 && userPrefs.equals(other.userPrefs)
                 && filteredInternships.equals(other.filteredInternships);
     }
@@ -169,7 +169,34 @@ public class ModelManager implements Model {
 
     @Override
     public void copyInternship(Internship target) {
-        internBuddy.copyInternship(target);
+        versionedInternBuddy.copyInternship(target);
+    }
+
+    //=========== Undo/Redo =================================================================================
+
+    @Override
+    public boolean canUndoInternBuddy() {
+        return versionedInternBuddy.canUndo();
+    }
+
+    @Override
+    public boolean canRedoInternBuddy() {
+        return versionedInternBuddy.canRedo();
+    }
+
+    @Override
+    public void undoInternBuddy() {
+        versionedInternBuddy.undo();
+    }
+
+    @Override
+    public void redoInternBuddy() {
+        versionedInternBuddy.redo();
+    }
+
+    @Override
+    public void commitInternBuddy() {
+        versionedInternBuddy.commit();
     }
 
 }

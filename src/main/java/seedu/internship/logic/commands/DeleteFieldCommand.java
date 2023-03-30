@@ -77,7 +77,7 @@ public class DeleteFieldCommand extends Command {
         }
 
         int newSize = model.getFilteredInternshipList().size();
-
+        model.commitInternBuddy();
         return new CommandResult(String.format(MESSAGE_DELETE_INTERNSHIP_SUCCESS, previousSize - newSize));
     }
 
