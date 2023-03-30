@@ -6,8 +6,8 @@ import static seedu.internship.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.internship.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.internship.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.internship.logic.parser.CliSyntax.PREFIX_STATUS;
+import static seedu.internship.logic.parser.CliSyntax.PREFIX_TAG;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,13 +21,14 @@ import seedu.internship.model.internship.InternshipContainsKeywordsPredicate;
 public class DeleteFieldCommandParser implements Parser<DeleteFieldCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the DeleteCommand
-     * and returns a DeleteCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the DeleteFieldCommand
+     * and returns a DeleteFieldCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public DeleteFieldCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_COMPANY_NAME, PREFIX_ROLE, PREFIX_STATUS, PREFIX_DATE);
+                ArgumentTokenizer.tokenize(args, PREFIX_COMPANY_NAME, PREFIX_ROLE, PREFIX_STATUS, PREFIX_DATE,
+                        PREFIX_TAG);
 
         if (!argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(
@@ -37,7 +38,8 @@ public class DeleteFieldCommandParser implements Parser<DeleteFieldCommand> {
         if (argMultimap.getValue(PREFIX_COMPANY_NAME).isEmpty()
                 && argMultimap.getValue(PREFIX_ROLE).isEmpty()
                 && argMultimap.getValue(PREFIX_STATUS).isEmpty()
-                && argMultimap.getValue(PREFIX_DATE).isEmpty()) {
+                && argMultimap.getValue(PREFIX_DATE).isEmpty()
+                && argMultimap.getValue(PREFIX_TAG).isEmpty()) {
             throw new ParseException(String.format(MESSAGE_MISSING_ARGUMENTS, DeleteFieldCommand.MESSAGE_USAGE));
         }
 
@@ -45,9 +47,10 @@ public class DeleteFieldCommandParser implements Parser<DeleteFieldCommand> {
         List<String> roleList = this.parseRoles(argMultimap.getAllValues(PREFIX_ROLE));
         List<String> statusList = this.parseStatuses(argMultimap.getAllValues(PREFIX_STATUS));
         List<String> dateList = this.parseDates(argMultimap.getAllValues(PREFIX_DATE));
+        List<String> tagList = this.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         InternshipContainsKeywordsPredicate newPredicate = new InternshipContainsKeywordsPredicate(nameList,
-                roleList, statusList, dateList, new ArrayList<>());
+                roleList, statusList, dateList, tagList);
 
 
         return new DeleteFieldCommand(newPredicate);
