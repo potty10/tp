@@ -46,6 +46,7 @@ public class DeleteFieldCommandTest {
         for (Internship internshipToDelete: internshipsToDelete) {
             expectedModel.deleteInternship(internshipToDelete);
         }
+        expectedModel.commitInternBuddy();
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
@@ -65,6 +66,7 @@ public class DeleteFieldCommandTest {
         for (Internship internshipToDelete: internshipsToDelete) {
             expectedModel.deleteInternship(internshipToDelete);
         }
+        expectedModel.commitInternBuddy();
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
@@ -84,6 +86,7 @@ public class DeleteFieldCommandTest {
         for (Internship internshipToDelete: internshipsToDelete) {
             expectedModel.deleteInternship(internshipToDelete);
         }
+        expectedModel.commitInternBuddy();
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
@@ -103,7 +106,7 @@ public class DeleteFieldCommandTest {
         for (Internship internshipToDelete: internshipsToDelete) {
             expectedModel.deleteInternship(internshipToDelete);
         }
-
+        expectedModel.commitInternBuddy();
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
 
@@ -124,7 +127,7 @@ public class DeleteFieldCommandTest {
         for (Internship internshipToDelete: internshipsToDelete) {
             expectedModel.deleteInternship(internshipToDelete);
         }
-
+        expectedModel.commitInternBuddy();
         showNoInternship(expectedModel);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
@@ -147,7 +150,7 @@ public class DeleteFieldCommandTest {
         for (Internship internshipToDelete: internshipsToDelete) {
             expectedModel.deleteInternship(internshipToDelete);
         }
-
+        expectedModel.commitInternBuddy();
         showNoInternship(expectedModel);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
@@ -170,7 +173,7 @@ public class DeleteFieldCommandTest {
         for (Internship internshipToDelete: internshipsToDelete) {
             expectedModel.deleteInternship(internshipToDelete);
         }
-
+        expectedModel.commitInternBuddy();
         showNoInternship(expectedModel);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
@@ -193,7 +196,7 @@ public class DeleteFieldCommandTest {
         for (Internship internshipToDelete: internshipsToDelete) {
             expectedModel.deleteInternship(internshipToDelete);
         }
-
+        expectedModel.commitInternBuddy();
         showNoInternship(expectedModel);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);

@@ -39,6 +39,7 @@ public class DeleteIndexCommandTest {
 
         ModelManager expectedModel = new ModelManager(model.getInternBuddy(), new UserPrefs());
         expectedModel.deleteInternship(internshipToDelete);
+        expectedModel.commitInternBuddy();
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
@@ -63,6 +64,7 @@ public class DeleteIndexCommandTest {
 
         Model expectedModel = new ModelManager(model.getInternBuddy(), new UserPrefs());
         expectedModel.deleteInternship(internshipToDelete);
+        expectedModel.commitInternBuddy();
         showNoInternship(expectedModel);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);

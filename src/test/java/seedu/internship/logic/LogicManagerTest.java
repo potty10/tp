@@ -85,6 +85,7 @@ public class LogicManagerTest {
         Internship expectedInternship = new InternshipBuilder(APPLE).withTags().build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addInternship(expectedInternship);
+        expectedModel.commitInternBuddy();
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
         assertCommandFailure(addCommand, CommandException.class, expectedMessage, expectedModel);
     }

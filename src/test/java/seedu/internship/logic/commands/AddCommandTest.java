@@ -169,6 +169,31 @@ public class AddCommandTest {
             //This will be called to update the right panel
             assert(true);
         }
+
+        @Override
+        public void commitInternBuddy() {
+            assert(true);
+        }
+
+        @Override
+        public boolean canUndoInternBuddy() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean canRedoInternBuddy() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void undoInternBuddy() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void redoInternBuddy() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**
@@ -206,6 +231,8 @@ public class AddCommandTest {
             requireNonNull(internship);
             internshipsAdded.add(internship);
         }
+
+
 
         @Override
         public ReadOnlyInternBuddy getInternBuddy() {

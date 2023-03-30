@@ -31,7 +31,7 @@ public class AddCommandIntegrationTest {
 
         Model expectedModel = new ModelManager(model.getInternBuddy(), new UserPrefs());
         expectedModel.addInternship(validInternship);
-
+        expectedModel.commitInternBuddy();
         assertCommandSuccess(new AddCommand(validInternship), model,
                 String.format(AddCommand.MESSAGE_SUCCESS, validInternship), expectedModel);
     }
