@@ -70,9 +70,17 @@ public class ArgumentTokenizer {
      * {@code fromIndex} = 0, this method returns 5.
      */
     private static int findPrefixPosition(String argsString, String prefix, int fromIndex) {
-        int prefixIndex = argsString.indexOf(" " + prefix, fromIndex);
-        return prefixIndex == -1 ? -1
-                : prefixIndex + 1; // +1 as offset for whitespace
+        String lowercasePrefix = prefix.toLowerCase();
+        String uppercasePrefix = prefix.toUpperCase();
+        int lowercasePrefixIndex = argsString.indexOf(" " + lowercasePrefix, fromIndex);
+        int uppercasePrefixIndex = argsString.indexOf(" " + uppercasePrefix, fromIndex);
+        if (uppercasePrefixIndex == -1 && lowercasePrefixIndex == -1) {
+            return -1;
+        }
+        if (uppercasePrefixIndex >= 0 && lowercasePrefixIndex >= 0) {
+            return Math.min(lowercasePrefixIndex, uppercasePrefixIndex) + 1;
+        }
+        return Math.max(lowercasePrefixIndex, uppercasePrefixIndex) + 1;
     }
 
     /**
