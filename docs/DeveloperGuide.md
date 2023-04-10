@@ -391,6 +391,10 @@ The following gives a more detailed explanation of the `add` command.
    this new `Internship` such that the [View Panel](#setting-up-and-getting-started) displays the information for
    this new `Internship`.
 
+The following UML diagram shows what happens when a user enters the `add` command.
+
+![AddActivityDiagram](images/AddActivityDiagram.png)
+
 <div style="page-break-after: always;"></div>
 
 #### Design Considerations
