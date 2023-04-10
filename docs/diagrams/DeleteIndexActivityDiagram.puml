@@ -1,0 +1,69 @@
+@startuml
+start
+:User enters delete-index command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+'if (condition A) then (yes)
+'  :Text 1;
+'elseif (condition B) then (yes)
+'  :Text 2;
+'  stop
+'(no) elseif (condition C) then (yes)
+'  :Text 3;
+'(no) elseif (condition D) then (yes)
+'  :Text 4;
+'else (nothing)
+'  :Text else;
+'endif
+
+if () then ([all arguments are integers])
+  if () then ([all arguments are greater than zero])
+    :Displays error message;
+    if () then ([all arguments <= size of list])
+        :Delete internships with index in INDEX_LIST;
+    else ([else])
+        :Displays error message;
+    endif
+  else ([else])
+    :Displays error message;
+'    :Adds a new Lab with the specified Lab Number
+'    to every student in the list and displays it;
+  endif
+ else ([else])
+    :Displays error message;
+ endif
+
+'if () then ([non-integer argument in INDEX_LIST])
+'    :Displays error message;
+'elseif () then ([negative integer in INDEX_LIST])
+'    :Displays error message;
+'
+'elseif () then ([any index in INDEX_LIST > size of list])
+'    :Displays error message;
+'else ()
+'    :Delete internships with index in INDEX_LIST;
+'endif
+
+
+'switch ()
+'case ( [non-integer argument in INDEX_LIST] )
+'  :Text 1;
+'case ( [negative integer in INDEX_LIST] )
+'  :Text 2;
+'case ( [any index in INDEX_LIST > size of list] )
+'  :Text 3;
+'case ( condition D )
+'  :Text 4;
+'case ( condition E )
+'  :Text 5;
+'endswitch
+
+'if () then ([command commits ApplicationBook])
+'    :Purge redundant states;
+'    :Save ApplicationBook to
+'   applicationBookStateList;
+'else ([else])
+'endif
+stop
+@enduml

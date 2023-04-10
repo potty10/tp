@@ -259,7 +259,9 @@ Figure 7 below illustrates the interactions within the `Logic` component for the
 limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
+The following UML diagram shows what happens when a user enters the `delete-index` command.
 
+![DeleteIndexActivityDiagram](images/DeleteIndexActivityDiagram.png)
 
 Figure 8 shows the other classes in `Logic` (omitted from Figure 6) that are used for parsing a user command:
 
