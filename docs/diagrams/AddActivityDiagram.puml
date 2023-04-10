@@ -3,12 +3,25 @@
 
 start
 :User executes add command;
-if () then ([duplicate internship])
-    :Displays error message;
- else ([else])
+'if () then ([duplicate internship])
+'    :Displays error message;
+' else ([else])
+'    :Add internship to list;
+'    :View panel displays new internship;
+' endif
+
+ if () then ([command format and values are correct])
+   if () then ([no duplicate internships])
     :Add internship to list;
     :View panel displays new internship;
- endif
+   else ([else])
+     :Displays error message;
+   endif
+  else ([else])
+     :Displays error message;
+  endif
+
 stop
+
 
 @enduml
