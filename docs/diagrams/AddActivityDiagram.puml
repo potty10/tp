@@ -7,7 +7,7 @@ if () then ([duplicate internship])
     :Displays error message;
  else ([else])
     :Add internship to list;
-    :Right panel displays new internship;
+    :View panel displays new internship;
  endif
 stop
 
